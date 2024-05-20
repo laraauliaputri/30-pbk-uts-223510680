@@ -1,250 +1,92 @@
 <template>
-  <div>
-    <button @click="goToPost">Post</button>
-    <button @click="showTodoListForm">TodoList</button>
-    <RegistrationForm v-if="!showForm" />
-    <div v-if="showForm" class="form-container">
-      <h2>Form Pendaftaran Kegiatan</h2>
-      <table>
-        <tr>
-          <td><label for="activity">Kegiatan:</label></td>
-          <td><input type="text" id="activity" v-model="newActivity"></td>
-        </tr>
-        <tr>
-          <td><label for="date">Tanggal:</label></td>
-          <td><input type="date" id="date" v-model="newDate"></td>
-        </tr>
-        <tr>
-          <td><label for="time">Jam:</label></td>
-          <td><input type="time" id="time" v-model="newTime"></td>
-        </tr>
-        <tr>
-          <td><label for="Lokasi">Lokasi:</label></td>
-          <td><input type="text" id="Lokasi" v-model="newHobby"></td>
-        </tr>
-        <tr>
-          <td colspan="2"><button @click="addActivity">Daftar</button></td>
-        </tr>
-      </table>
-
-      <h2>Daftar Kegiatan</h2>
-      <table>
-        <tr v-for="(activity, index) in activities" :key="index">
-          <td>
-            <input type="checkbox" v-model="activity.completed" @change="toggleCompletion(activity)">
-          </td>
-          <td :class="{ 'completed': activity.completed }">{{ activity.name }}</td>
-          <td>{{ activity.date }}</td>
-          <td>{{ activity.time }}</td>
-          <td>{{ activity.hobby }}</td>
-          <td><button @click="cancelActivity(index)">Batalkan</button></td> 
-        </tr>
-      </table>
+  <div class="app-container">
+    <div class="button-container">
+      <button @click="goToPost" :class="{ active: showPost }">Post</button>
+      <button @click="showTodoListForm" :class="{ active: showForm }">TodoList</button>
     </div>
-
-    <div v-if="showPost" class="post-container">
-      <h2>Post</h2>
-      <select v-model="selectedUser" @change="fetchPosts">
-        <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name }}</option>
-      </select>
-      <div v-for="post in posts" :key="post.id">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.body }}</p>
-      </div>
+    <div class="content-container">
+      <TodoList v-if="showForm" />
+      <PostList v-if="showPost" />
     </div>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import TodoList from './components/TodoList.vue';
+import PostList from './components/PostList.vue';
 
 export default {
+  components: {
+    TodoList,
+    PostList
+  },
   data() {
     return {
       showForm: false,
-      showPost: false,
-      newActivity: '',
-      newDate: '',
-      newTime: '',
-      newHobby: '',
-      activities: [],
-      users: [],
-      selectedUser: null,
-      posts: []
+      showPost: false
     };
   },
   methods: {
     showTodoListForm() {
-      this.showForm = true; // Tampilkan form TodoList
-      this.showPost = false; // Sembunyikan bagian Post
+      this.showForm = true;
+      this.showPost = false;
     },
     goToPost() {
-      this.showPost = true; // Tampilkan bagian Post
-      this.showForm = false; // Sembunyikan form TodoList
-    },
-    async fetchUsers() {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        if (!response.ok) {
-          throw new Error('Failed to fetch users');
-        }
-        const users = await response.json();
-        this.users = users;
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    },
-    async fetchPosts() {
-      try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${this.selectedUser}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch posts');
-        }
-        const posts = await response.json();
-        this.posts = posts;
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    },
-    addActivity() {
-      if (this.newActivity && this.newDate && this.newTime && this.newHobby) {
-        this.activities.push({
-          name: this.newActivity,
-          date: this.newDate,
-          time: this.newTime,
-          hobby: this.newHobby,
-          completed: false
-        });
-        this.newActivity = '';
-        this.newDate = '';
-        this.newTime = '';
-        this.newHobby = '';
-      }
-    },
-    cancelActivity(index) {
-      this.activities.splice(index, 1);
-    },
-    toggleCompletion(activity) {
-      if (activity.completed) {
-        // Add your toggle completion logic here
-      }
+      this.showPost = true;
+      this.showForm = false;
     }
-  },
-  async created() {
-    await this.fetchUsers();
   }
 }
 </script>
 
-
 <style scoped>
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.completed {
-  text-decoration: line-through;
-}
-
-.form-container {
-  margin-top: 20px;
-}
-
-.post-container {
-  margin-top: 20px;
-}
-</style>
-
-
-<style scoped>
-/* Styling for active menu */
-.active {
-  background-color: #45a049;
-}
-
-/* Other styles remain unchanged */
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-}
-
-.header-menu {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.input-container {
+.app-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #faf3e0;
+  min-height: 100vh; /* Ensures the container covers full viewport height */
 }
 
-input[type="text"] {
-  flex: 1;
-  padding: 8px;
-  margin-right: 10px;
+.button-container {
+  margin-bottom: 20px;
 }
 
 button {
-  padding: 8px 16px;
-  background-color: #f0027d;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #675720;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #675720;
+  transform: scale(1.05);
 }
 
-table {
+button.active {
+  background-color: #a08645;
+  color: #fff;
+  font-weight: bold;
+}
+
+.content-container {
   width: 100%;
-  border-collapse: collapse;
+  max-width: 800px; /* Limits the width of the content */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  transition: all 0.3s ease;
 }
 
-th, td {
-  border-bottom: 1px solid #e5e5e5;
-  padding: 8px;
-  text-align: left;
-}
-
-th {
-  background-color: #4CAF50;
-  color: white;
-}
-
-tr:hover {
-  background-color: #f5f5f5;
-}
-
-.completed {
-  text-decoration: line-through;
-}
-
-.post-form {
-  margin-bottom: 20px;
-}
-
-.post-form select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-.post-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  resize: vertical;
-}
-
-.post-form button {
-  width: 100%;
-  padding: 8px 16px;
+.content-container > *:not(:last-child) {
+  margin-bottom: 20px; /* Adds space between components */
 }
 </style>

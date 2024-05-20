@@ -1,140 +1,158 @@
 body {
-    background-color:   z#af8068;
-    
+  background-color: #675720; /* Warna latar belakang yang lebih cerah dan lembut */
+  font-family: 'Arial', sans-serif; /* Font yang lebih modern */
 }
 
 .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #21d8df;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.862);
-  }
-  
-  .form-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-wrapper {
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-input {
-    width: calc(100% - 12px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .form-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .form-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Styling untuk daftar kegiatan */
-  .activity-list-title {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-  
-  .activity-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .activity-checkbox {
-    margin-right: 10px;
-  }
-  
-  .activity-name {
-    font-weight: bold;
-  }
-  
-  .activity-date {
-    min-width: 120px;
-  }
-  
-  .completed {
-    text-decoration: line-through;
-  }
-  
-  .activity-cancel-button {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .activity-cancel-button:hover {
-    background-color: #c82333;
-  }
+  max-width: 600px;
+  margin: 40px auto; /* Tambahkan margin atas untuk memberikan ruang */
+  padding: 20px;
+  background-color: #675720; /* Warna latar belakang putih untuk kontras */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih lembut */
+}
 
-  /* Styling untuk checkbox */
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333; /* Warna teks yang lebih gelap untuk kontras */
+}
+
+.form-wrapper {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555; /* Warna teks yang lebih lembut */
+}
+
+.form-input {
+  width: calc(100% - 12px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s; /* Animasi pada border saat fokus */
+}
+
+.form-input:focus {
+  border-color: #675720; /* Warna border saat input aktif */
+}
+
+.form-button {
+  background-color: #edd57d;
+  color: #ffdf8e;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s; /* Animasi pada warna saat hover */
+}
+
+.form-button:hover {
+  background-color: #a79754; /* Warna tombol saat hover */
+}
+
+/* Styling untuk daftar kegiatan */
+.activity-list-title {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333; /* Warna teks yang lebih gelap */
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.activity-table th, .activity-table td {
+  padding: 10px;
+  border: 1px solid #ddd; /* Warna border yang lebih lembut */
+  text-align: left;
+}
+
+.activity-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.activity-checkbox {
+  margin-right: 10px;
+}
+
+.activity-name {
+  font-weight: bold;
+  color: #333; /* Warna teks yang lebih gelap */
+}
+
+.activity-date {
+  min-width: 120px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #999; /* Warna teks untuk item yang sudah selesai */
+}
+
+.activity-cancel-button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s; /* Animasi pada warna saat hover */
+}
+
+.activity-cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Styling untuk checkbox */
 input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  /* Styling untuk kegiatan yang selesai */
-  .completed {
-    text-decoration: line-through;
-  }
-  
-  /* Styling tambahan sesuai kebutuhan */
-  .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table td, table th {
-    padding: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  button {
-    padding: 8px 16px;
-    background-color: #924c3e;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #3b833e;
+  margin-right: 10px;
+}
+
+/* Styling tambahan sesuai kebutuhan */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table td, table th {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s; /* Animasi pada warna saat hover */
+}
+
+button:hover {
+  background-color: #218838;
 }
