@@ -1,22 +1,22 @@
 body {
-  background-color: #675720; /* Warna latar belakang yang lebih cerah dan lembut */
-  font-family: 'Arial', sans-serif; /* Font yang lebih modern */
+  background-color: #add8e6; /* Brighter and softer background color */
+  font-family: 'Arial', sans-serif; /* More modern font */
 }
 
 .form-container {
   max-width: 600px;
-  margin: 40px auto; /* Tambahkan margin atas untuk memberikan ruang */
+  margin: 40px auto; /* Added top margin to give space */
   padding: 20px;
-  background-color: #675720; /* Warna latar belakang putih untuk kontras */
+  background-color: #ffffff; /* White background for contrast */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih lembut */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
 }
 
 .form-title {
   text-align: center;
   margin-bottom: 20px;
   font-size: 24px;
-  color: #333; /* Warna teks yang lebih gelap untuk kontras */
+  color: #333; /* Darker text color for contrast */
 }
 
 .form-wrapper {
@@ -31,7 +31,7 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #555; /* Warna teks yang lebih lembut */
+  color: #555; /* Softer text color */
 }
 
 .form-input {
@@ -40,35 +40,35 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  transition: border-color 0.3s; /* Animasi pada border saat fokus */
+  transition: border-color 0.3s; /* Animation on border when focused */
 }
 
 .form-input:focus {
-  border-color: #675720; /* Warna border saat input aktif */
+  border-color: #87ceeb; /* Border color when input is active */
 }
 
 .form-button {
-  background-color: #edd57d;
-  color: #ffdf8e;
+  background-color: #87ceeb; /* Baby blue background for better visibility */
+  color: white; /* White text color */
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s; /* Animasi pada warna saat hover */
+  transition: background-color 0.3s; /* Animation on hover */
 }
 
 .form-button:hover {
-  background-color: #a79754; /* Warna tombol saat hover */
+  background-color: #76b4bd; /* Button color on hover */
 }
 
-/* Styling untuk daftar kegiatan */
+/* Styling for the activities list */
 .activity-list-title {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 20px;
   font-size: 20px;
-  color: #333; /* Warna teks yang lebih gelap */
+  color: #333; /* Darker text color */
 }
 
 .activity-table {
@@ -79,7 +79,7 @@ body {
 
 .activity-table th, .activity-table td {
   padding: 10px;
-  border: 1px solid #ddd; /* Warna border yang lebih lembut */
+  border: 1px solid #ddd; /* Softer border color */
   text-align: left;
 }
 
@@ -94,7 +94,7 @@ body {
 
 .activity-name {
   font-weight: bold;
-  color: #333; /* Warna teks yang lebih gelap */
+  color: #333; /* Darker text color */
 }
 
 .activity-date {
@@ -103,7 +103,7 @@ body {
 
 .completed {
   text-decoration: line-through;
-  color: #999; /* Warna teks untuk item yang sudah selesai */
+  color: #999; /* Text color for completed items */
 }
 
 .activity-cancel-button {
@@ -114,19 +114,19 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s; /* Animasi pada warna saat hover */
+  transition: background-color 0.3s; /* Animation on hover */
 }
 
 .activity-cancel-button:hover {
   background-color: #c82333;
 }
 
-/* Styling untuk checkbox */
+/* Styling for checkbox */
 input[type="checkbox"] {
   margin-right: 10px;
 }
 
-/* Styling tambahan sesuai kebutuhan */
+/* Additional styling as needed */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -145,14 +145,14 @@ table th {
 
 button {
   padding: 8px 16px;
-  background-color: #28a745;
+  background-color: #87ceeb; /* Baby blue background for buttons */
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s; /* Animasi pada warna saat hover */
+  transition: background-color 0.3s; /* Animation on hover */
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #76b4bd; /* Button color on hover */
 }
